@@ -10,8 +10,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="50dp"
-        android:text="First Page" />
+
+        android:textSize="20dp"
+        android:text="
+
+
+ This page is meant to display the sleep patterns of a child.
+Not actual data." />
 
 </FrameLayout>

@@ -8,6 +8,20 @@
     tools:context=".Baby_Braclet"
     tools:showIn="@layout/app_bar_baby__braclet">
 
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="400dp"
+        android:layout_height="250dip"
+        android:id="@+id/graph"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center_horizontal"
+        android:nestedScrollingEnabled="false"
+        android:paddingBottom="100dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        />
+
     <FrameLayout
         android:id="@+id/fragment"
         android:layout_width="match_parent"

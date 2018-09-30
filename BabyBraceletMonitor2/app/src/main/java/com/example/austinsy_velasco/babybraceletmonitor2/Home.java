@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Second extends Fragment {
+public class Home extends Fragment {
 
 
-    public Second() {
+    public Home() {
         // Required empty public constructor
     }
 
@@ -23,8 +23,8 @@ public class Second extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        getActivity().setTitle("Temperature");
-        return inflater.inflate(R.layout.fragment_second, container, false);
+        getActivity().setTitle("Home");
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
 }

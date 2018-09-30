@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -37,15 +38,7 @@ public class Baby_Braclet extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        GraphView graph = (GraphView) findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
-        graph.addSeries(series);
+
     }
 
     @Override
@@ -85,24 +78,73 @@ public class Baby_Braclet extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.sleep) {
-            setTitle("First");
+        GraphView graph = (GraphView) findViewById(R.id.graph);
+        graph.removeAllSeries();
+        if (id == R.id.home) {
+            graph.removeAllSeries();
+            setTitle("Home");
+            Home home = new Home();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.fragment, home).commit();
+        } else if (id == R.id.sleep) {
+            graph.removeAllSeries();
+            setTitle("Sleep");
             First first = new First();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.fragment, first).commit();
+            //GraphView graph = (GraphView) findViewById(R.id.graph);
+            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                    new DataPoint(0, 4),
+                    new DataPoint(1, 2),
+                    new DataPoint(2, 1),
+                    new DataPoint(3, 7),
+                    new DataPoint(4, 4)
+            });
+            graph.addSeries(series);
+            series.setTitle("foo");
+
+            //graph.getLegendRenderer().setVisible(true);
+            //graph.setPadding(0, 230,400, 700 );
         } else if (id == R.id.Temperature) {
-            setTitle("Second");
+            graph.removeAllSeries();
+            setTitle("Temperature");
             Second second = new Second();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.fragment, second).commit();
+            //GraphView graph = (GraphView) findViewById(R.id.graph);
+            LineGraphSeries<DataPoint> series2 = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                    new DataPoint(0, 1),
+                    new DataPoint(1, 5),
+                    new DataPoint(2, 3),
+                    new DataPoint(3, 2),
+                    new DataPoint(4, 6)
+            });
+            graph.addSeries(series2);
+
+
+            series2.setTitle("bar");
+            //graph.getLegendRenderer().setVisible(true);
+            //graph.setPadding(0, 230,400, 700 );
         } else if (id == R.id.Pulse) {
-            setTitle("Third");
+            graph.removeAllSeries();
+            setTitle("Pulse");
             Third third = new Third();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.fragment, third).commit();
-        }
+            //GraphView graph = (GraphView) findViewById(R.id.graph);
+            LineGraphSeries<DataPoint> series3 = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                    new DataPoint(0, 2),
+                    new DataPoint(1, 1),
+                    new DataPoint(2, 5),
+                    new DataPoint(3, 7),
+                    new DataPoint(4, 6)
+            });
+            graph.addSeries(series3);
 
+            series3.setTitle("bar");
+            //graph.getLegendRenderer().setVisible(true);
+            //graph.setPadding(0, 230,400, 700 );
+        }
         return true;
     }
 }
